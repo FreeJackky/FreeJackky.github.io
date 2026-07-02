@@ -137,16 +137,28 @@
 
         .menu-btn {
             display: none;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, var(--green), var(--blue));
-            color: #000;
-            font-weight: 700;
-            font-size: 13px;
+            width: 44px;
+            height: 44px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.15);
             border-radius: 8px;
-            border: none;
             cursor: pointer;
-            box-shadow: 0 0 20px rgba(0,255,136,0.2);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 0;
         }
+        .menu-btn span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .menu-btn:hover { border-color: var(--green); }
+        .menu-btn:hover span { background: var(--green); }
 
         .mobile-menu {
             display: none;
@@ -862,7 +874,7 @@
             .navbar { padding: 12px 20px; }
             .nav-links { display: none; }
             .nav-cta { display: none; }
-            .menu-btn { display: block; }
+            .menu-btn { display: flex; }
             .hero h1 { font-size: 32px; }
             .hero-desc { font-size: 16px; }
             .hero-stats { gap: 30px; }
@@ -895,7 +907,9 @@
             <li><a href="#about">我是谁</a></li>
         </ul>
         <a href="#contact" class="nav-cta">私信了解</a>
-        <button class="menu-btn" onclick="document.querySelector('.mobile-menu').classList.add('active')">私信了解</button>
+        <button class="menu-btn" onclick="document.querySelector('.mobile-menu').classList.add('active')" aria-label="菜单">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
 
     <!-- 移动端菜单 -->
